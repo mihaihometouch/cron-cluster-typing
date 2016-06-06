@@ -1,5 +1,5 @@
 declare module "cron-cluster" {
-	export function c(redisClient:any):CronJobWrapper;
+	function c(redisClient:any):CronJobWrapper;
 
 	export class CronJobWrapper {
 		CronJob:CronJob;
@@ -8,4 +8,6 @@ declare module "cron-cluster" {
 	export class CronJob {
 		constructor(cronPattern:string, callback:any);
 	}
+
+	export = c;
 }
