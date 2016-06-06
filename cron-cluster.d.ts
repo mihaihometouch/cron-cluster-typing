@@ -1,15 +1,17 @@
 declare module "cron-cluster" {
-	function c(redisClient:any):CronJobWrapper;
+	function c(redisClient:any):any;
 
-	export class CronJobWrapper {
-		CronJob:CronJob;
-	}
+	namespace c {
+		export class CronJobWrapper {
+			CronJob:CronJob;
+		}
 
-	export class CronJob {
-		constructor(cronPattern:string, callback:any);
+		export class CronJob {
+			constructor(cronPattern:string, callback:any);
 
-		start();
-		stop();
+			start();
+			stop();
+		}
 	}
 
 	export = c;
